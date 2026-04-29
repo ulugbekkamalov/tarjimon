@@ -13,37 +13,27 @@
   .sub { font-size: 13px; color: #888; margin-bottom: 1.5rem; }
   .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
   .label { font-size: 11px; color: #888; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
-
-  /* Mikrofon */
   .mic-wrap { display: flex; flex-direction: column; align-items: center; padding: 1rem 0; }
   .mic-btn { width: 80px; height: 80px; border-radius: 50%; border: none; cursor: pointer; font-size: 32px; background: #222; color: #fff; transition: all .2s; display: flex; align-items: center; justify-content: center; }
   .mic-btn:hover { background: #444; transform: scale(1.05); }
   .mic-btn.recording { background: #e74c3c; animation: micPulse 1.2s infinite; }
   @keyframes micPulse { 0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,0.4)} 50%{box-shadow:0 0 0 16px rgba(231,76,60,0)} }
   .mic-status { margin-top: 10px; font-size: 13px; color: #888; }
-  .rec-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #e74c3c; margin-right: 5px; animation: pulse 1s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.2} }
-
-  /* Matn qutisi */
-  .text-box { width: 100%; min-height: 90px; padding: 10px 12px; border-radius: 8px; border: 1px solid #ddd; background: #fafafa; font-size: 14px; color: #222; line-height: 1.6; font-family: Arial, sans-serif; resize: vertical; outline: none; }
+  .rec-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #e74c3c; margin-right: 5px; animation: blink 1s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+  .text-box { width: 100%; min-height: 90px; padding: 10px 12px; border-radius: 8px; border: 1px solid #ddd; background: #fafafa; font-size: 14px; color: #222; line-height: 1.6; font-family: Arial, sans-serif; resize: vertical; outline: none; transition: border .15s; }
   .text-box:focus { border-color: #777; background: #fff; }
-
-  /* Til tanlash */
-  .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 6px; margin-bottom: 10px; }
+  .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 6px; margin-bottom: 10px; }
   .lang-chip { padding: 7px 10px; border-radius: 8px; border: 1px solid #e0e0e0; font-size: 13px; cursor: pointer; background: #fafafa; color: #444; transition: all .15s; text-align: center; }
   .lang-chip:hover { background: #f0f0f0; border-color: #bbb; }
   .lang-chip.active { background: #222; color: #fff; border-color: #222; font-weight: 700; }
-  .lang-search { width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #ddd; background: #fafafa; font-size: 14px; color: #222; outline: none; margin-bottom: 10px; }
+  .lang-search { width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #ddd; background: #fafafa; font-size: 14px; color: #222; outline: none; margin-bottom: 10px; transition: border .15s; }
   .lang-search:focus { border-color: #777; }
-
-  /* Tarjima natijasi */
   .result-wrap { position: relative; }
   .result-box { width: 100%; min-height: 90px; padding: 10px 12px; border-radius: 8px; border: 1px solid #ddd; background: #fafafa; font-size: 14px; color: #222; line-height: 1.6; white-space: pre-wrap; }
   .result-placeholder { color: #bbb; }
   .copy-btn { position: absolute; top: 8px; right: 8px; padding: 4px 10px; border-radius: 6px; border: 1px solid #ddd; font-size: 12px; cursor: pointer; background: #fff; color: #555; transition: all .15s; }
   .copy-btn:hover { background: #f0f0f0; }
-
-  /* Tugmalar */
   .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
   button { padding: 9px 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; cursor: pointer; background: #fff; color: #222; transition: all .15s; font-family: Arial, sans-serif; }
   button:hover { background: #f0f0f0; }
@@ -52,31 +42,28 @@
   .btn-primary:hover { background: #444; }
   .btn-danger { color: #c0392b; border-color: #e0b0b0; }
   .btn-danger:hover { background: #fff0f0; }
-
-  /* Status */
   .status { font-size: 13px; margin-top: 8px; min-height: 18px; }
-  .status.ok  { color: #27ae60; font-weight: 600; }
-  .status.err { color: #c0392b; font-weight: 600; }
+  .status.ok   { color: #27ae60; font-weight: 600; }
+  .status.err  { color: #c0392b; font-weight: 600; }
   .status.info { color: #2980b9; }
-
-  /* Loading */
   .loading { display: inline-block; width: 14px; height: 14px; border: 2px solid #ddd; border-top-color: #222; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: 6px; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* Nutq tili */
   .speech-langs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
   .slang-btn { padding: 5px 14px; border-radius: 20px; border: 1px solid #ddd; font-size: 13px; cursor: pointer; background: #f5f5f5; color: #555; transition: all .15s; }
   .slang-btn:hover { background: #eee; }
   .slang-btn.active { background: #222; color: #fff; border-color: #222; font-weight: 600; }
-
-  /* TTS tugma */
-  .speak-btn { padding: 5px 14px; border-radius: 20px; border: 1px solid #ddd; font-size: 13px; cursor: pointer; background: #f5f5f5; color: #555; margin-top: 8px; transition: all .15s; }
+  .speak-btn { padding: 7px 16px; border-radius: 20px; border: 1px solid #ddd; font-size: 13px; cursor: pointer; background: #f5f5f5; color: #555; margin-top: 10px; transition: all .15s; }
   .speak-btn:hover { background: #eee; }
+  .src-lang-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .src-lang-row label { font-size: 13px; color: #666; min-width: 80px; }
+  select.src-select { padding: 7px 10px; border-radius: 8px; border: 1px solid #ddd; background: #fafafa; font-size: 13px; color: #222; outline: none; cursor: pointer; }
+  select.src-select:focus { border-color: #777; }
 
   @media (prefers-color-scheme: dark) {
     body { background: #1a1a1a; color: #eee; }
     .card { background: #252525; border-color: #333; }
-    input, .text-box, .result-box, .lang-search { background: #2a2a2a; color: #eee; border-color: #444; }
+    .text-box, .result-box, .lang-search, select.src-select { background: #2a2a2a; color: #eee; border-color: #444; }
+    .text-box:focus, .lang-search:focus { background: #333; border-color: #666; }
     button { background: #2a2a2a; color: #eee; border-color: #444; }
     button:hover { background: #333; }
     .btn-primary { background: #eee; color: #111; border-color: #eee; }
@@ -86,10 +73,8 @@
     .lang-chip.active { background: #eee; color: #111; border-color: #eee; }
     .slang-btn { background: #2a2a2a; color: #ccc; border-color: #444; }
     .slang-btn.active { background: #eee; color: #111; border-color: #eee; }
-    .copy-btn { background: #333; color: #ccc; border-color: #555; }
-    .copy-btn:hover { background: #444; }
-    .speak-btn { background: #2a2a2a; color: #ccc; border-color: #444; }
-    .speak-btn:hover { background: #333; }
+    .copy-btn, .speak-btn { background: #2a2a2a; color: #ccc; border-color: #444; }
+    .copy-btn:hover, .speak-btn:hover { background: #333; }
     .mic-btn { background: #eee; color: #111; }
     .mic-btn.recording { background: #e74c3c; color: #fff; }
   }
@@ -104,18 +89,38 @@
   <h1>🌍 Ovozli Tarjimon</h1>
   <p class="sub">Gapiring yoki matn yozing — istalgan tilga tarjima qilinadi</p>
 
-  <!-- 1. Ovoz yozish -->
+  <!-- 1. Manba -->
   <div class="card">
-    <div class="label">1. Nutq tili</div>
+    <div class="label">1. Manba tili (siz yozayotgan til)</div>
+    <div class="src-lang-row">
+      <label>Manba til:</label>
+      <select class="src-select" id="sourceLang">
+        <option value="uz">🇺🇿 O'zbek</option>
+        <option value="ru">🇷🇺 Rus</option>
+        <option value="en" selected>🇺🇸 Ingliz</option>
+        <option value="tr">🇹🇷 Turk</option>
+        <option value="ar">🇸🇦 Arab</option>
+        <option value="de">🇩🇪 Nemis</option>
+        <option value="fr">🇫🇷 Fransuz</option>
+        <option value="es">🇪🇸 Ispan</option>
+        <option value="zh">🇨🇳 Xitoy</option>
+        <option value="ja">🇯🇵 Yapon</option>
+        <option value="ko">🇰🇷 Koreys</option>
+        <option value="hi">🇮🇳 Hind</option>
+        <option value="kk">🇰🇿 Qozoq</option>
+        <option value="az">🇦🇿 Ozarbayjon</option>
+      </select>
+    </div>
+
+    <div class="label">Nutq tili (mikrofon uchun)</div>
     <div class="speech-langs">
-      <button class="slang-btn active" onclick="setSpeechLang('uz-UZ', this)">🇺🇿 O'zbek</button>
+      <button class="slang-btn" onclick="setSpeechLang('uz-UZ', this)">🇺🇿 O'zbek</button>
       <button class="slang-btn" onclick="setSpeechLang('ru-RU', this)">🇷🇺 Rus</button>
-      <button class="slang-btn" onclick="setSpeechLang('en-US', this)">🇺🇸 Ingliz</button>
-      <button class="slang-btn" onclick="setSpeechLang('ar-SA', this)">🇸🇦 Arab</button>
+      <button class="slang-btn active" onclick="setSpeechLang('en-US', this)">🇺🇸 Ingliz</button>
       <button class="slang-btn" onclick="setSpeechLang('tr-TR', this)">🇹🇷 Turk</button>
+      <button class="slang-btn" onclick="setSpeechLang('ar-SA', this)">🇸🇦 Arab</button>
       <button class="slang-btn" onclick="setSpeechLang('de-DE', this)">🇩🇪 Nemis</button>
       <button class="slang-btn" onclick="setSpeechLang('fr-FR', this)">🇫🇷 Fransuz</button>
-      <button class="slang-btn" onclick="setSpeechLang('zh-CN', this)">🇨🇳 Xitoy</button>
     </div>
 
     <div class="label">Mikrofon</div>
@@ -124,19 +129,22 @@
       <div class="mic-status" id="micStatus">Bosing va gapiring</div>
     </div>
 
-    <div class="label">Yozib olingan matn</div>
-    <textarea class="text-box" id="sourceText" placeholder="Matn shu yerda paydo bo'ladi yoki o'zingiz yozing..."></textarea>
+    <div class="label">Matn (yozing yoki mikrofon orqali kiriting)</div>
+    <textarea class="text-box" id="sourceText" placeholder="Bu yerga matn yozing yoki mikrofon orqali gapiring..."></textarea>
+
     <div class="btn-row">
       <button class="btn-primary" onclick="translate()">🌐 Tarjima qil</button>
-      <button onclick="clearAll()">Tozala</button>
+      <button class="btn-danger" onclick="clearAll()">Tozala</button>
     </div>
     <div class="status" id="mainStatus"></div>
   </div>
 
   <!-- 2. Tarjima tili -->
   <div class="card">
-    <div class="label">2. Tarjima tiliga tanlang</div>
-    <input class="lang-search" type="text" id="langSearch" placeholder="Til qidirish... (o'zbek, ingliz, rus...)" oninput="filterLangs()">
+    <div class="label">2. Qaysi tilga tarjima qilinsin?</div>
+    <input class="lang-search" type="text" id="langSearch"
+      placeholder="Til qidirish... (o'zbek, ingliz, rus, arab...)"
+      oninput="filterLangs()">
     <div class="lang-grid" id="langGrid"></div>
   </div>
 
@@ -155,45 +163,42 @@
 </div>
 
 <script>
-  // Tillar ro'yxati
   const LANGS = [
-    { code: 'uz', name: "O'zbek",    flag: '🇺🇿' },
-    { code: 'ru', name: 'Rus',       flag: '🇷🇺' },
-    { code: 'en', name: 'Ingliz',    flag: '🇺🇸' },
-    { code: 'tr', name: 'Turk',      flag: '🇹🇷' },
-    { code: 'ar', name: 'Arab',      flag: '🇸🇦' },
-    { code: 'de', name: 'Nemis',     flag: '🇩🇪' },
-    { code: 'fr', name: 'Fransuz',   flag: '🇫🇷' },
-    { code: 'es', name: 'Ispan',     flag: '🇪🇸' },
-    { code: 'it', name: 'Italyan',   flag: '🇮🇹' },
-    { code: 'pt', name: 'Portugal',  flag: '🇵🇹' },
-    { code: 'zh', name: 'Xitoy',     flag: '🇨🇳' },
-    { code: 'ja', name: 'Yapon',     flag: '🇯🇵' },
-    { code: 'ko', name: 'Koreys',    flag: '🇰🇷' },
-    { code: 'hi', name: 'Hind',      flag: '🇮🇳' },
-    { code: 'fa', name: 'Fors',      flag: '🇮🇷' },
-    { code: 'kk', name: 'Qozoq',     flag: '🇰🇿' },
-    { code: 'ky', name: 'Qirg\'iz',  flag: '🇰🇬' },
-    { code: 'az', name: 'Ozarbayjon',flag: '🇦🇿' },
-    { code: 'uk', name: 'Ukrain',    flag: '🇺🇦' },
-    { code: 'pl', name: 'Polyak',    flag: '🇵🇱' },
-    { code: 'nl', name: 'Golland',   flag: '🇳🇱' },
-    { code: 'sv', name: 'Shved',     flag: '🇸🇪' },
-    { code: 'he', name: 'Ibroniy',   flag: '🇮🇱' },
-    { code: 'id', name: 'Indonez',   flag: '🇮🇩' },
+    { code: 'uz', name: "O'zbek",     flag: '🇺🇿' },
+    { code: 'ru', name: 'Rus',        flag: '🇷🇺' },
+    { code: 'en', name: 'Ingliz',     flag: '🇺🇸' },
+    { code: 'tr', name: 'Turk',       flag: '🇹🇷' },
+    { code: 'ar', name: 'Arab',       flag: '🇸🇦' },
+    { code: 'de', name: 'Nemis',      flag: '🇩🇪' },
+    { code: 'fr', name: 'Fransuz',    flag: '🇫🇷' },
+    { code: 'es', name: 'Ispan',      flag: '🇪🇸' },
+    { code: 'it', name: 'Italyan',    flag: '🇮🇹' },
+    { code: 'pt', name: 'Portugal',   flag: '🇵🇹' },
+    { code: 'zh', name: 'Xitoy',      flag: '🇨🇳' },
+    { code: 'ja', name: 'Yapon',      flag: '🇯🇵' },
+    { code: 'ko', name: 'Koreys',     flag: '🇰🇷' },
+    { code: 'hi', name: 'Hind',       flag: '🇮🇳' },
+    { code: 'fa', name: 'Fors',       flag: '🇮🇷' },
+    { code: 'kk', name: 'Qozoq',      flag: '🇰🇿' },
+    { code: 'ky', name: "Qirg'iz",    flag: '🇰🇬' },
+    { code: 'az', name: 'Ozarbayjon', flag: '🇦🇿' },
+    { code: 'uk', name: 'Ukrain',     flag: '🇺🇦' },
+    { code: 'pl', name: 'Polyak',     flag: '🇵🇱' },
+    { code: 'nl', name: 'Golland',    flag: '🇳🇱' },
+    { code: 'sv', name: 'Shved',      flag: '🇸🇪' },
+    { code: 'he', name: 'Ibroniy',    flag: '🇮🇱' },
+    { code: 'id', name: 'Indonez',    flag: '🇮🇩' },
   ];
 
-  let selectedTargetLang = 'en';
-  let speechLang = 'uz-UZ';
+  let selectedTargetLang = 'uz';
+  let speechLang = 'en-US';
   let recognition = null;
   let isRecording = false;
   let fullTranscript = '';
   let translatedText = '';
 
-  // Til kartalarini chizish
   function renderLangs(list) {
-    const grid = document.getElementById('langGrid');
-    grid.innerHTML = list.map(l =>
+    document.getElementById('langGrid').innerHTML = list.map(l =>
       `<div class="lang-chip${l.code === selectedTargetLang ? ' active' : ''}"
         onclick="selectLang('${l.code}', this)">
         ${l.flag} ${l.name}
@@ -203,10 +208,9 @@
 
   function filterLangs() {
     const q = document.getElementById('langSearch').value.toLowerCase();
-    const filtered = LANGS.filter(l =>
+    renderLangs(LANGS.filter(l =>
       l.name.toLowerCase().includes(q) || l.code.includes(q)
-    );
-    renderLangs(filtered);
+    ));
   }
 
   function selectLang(code, el) {
@@ -217,15 +221,16 @@
 
   renderLangs(LANGS);
 
-  // Nutq tili
   function setSpeechLang(lang, btn) {
     speechLang = lang;
+    // Manba tilni ham yangilash
+    const code = lang.split('-')[0];
+    document.getElementById('sourceLang').value = code;
     document.querySelectorAll('.slang-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     if (recognition) recognition.lang = lang;
   }
 
-  // Mikrofon
   function toggleRec() {
     if (isRecording) stopRec();
     else startRec();
@@ -234,10 +239,11 @@
   function startRec() {
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SR) {
-      setStatus('mainStatus', 'Brauzeringiz mikrofon qo\'llab-quvvatlamaydi (Chrome ishlatib ko\'ring)', 'err');
+      setStatus('mainStatus', 'Brauzeringiz mikrofon qo\'llab-quvvatlamaydi. Chrome ishlatib ko\'ring.', 'err');
       return;
     }
     fullTranscript = '';
+    document.getElementById('sourceText').value = '';
     recognition = new SR();
     recognition.continuous = true;
     recognition.interimResults = true;
@@ -247,7 +253,8 @@
       isRecording = true;
       document.getElementById('micBtn').classList.add('recording');
       document.getElementById('micBtn').textContent = '⏹';
-      document.getElementById('micStatus').innerHTML = '<span class="rec-dot"></span>Yozilmoqda... (to\'xtatish uchun bosing)';
+      document.getElementById('micStatus').innerHTML =
+        '<span class="rec-dot"></span>Yozilmoqda... (to\'xtatish uchun bosing)';
     };
 
     recognition.onresult = (e) => {
@@ -278,42 +285,65 @@
     document.getElementById('micBtn').classList.remove('recording');
     document.getElementById('micBtn').textContent = '🎤';
     document.getElementById('micStatus').textContent = 'Bosing va gapiring';
-    if (fullTranscript.trim()) {
-      setStatus('mainStatus', 'Yozib olindi! Tarjima qilish uchun tugmani bosing.', 'ok');
-    }
+    const text = document.getElementById('sourceText').value.trim();
+    if (text) setStatus('mainStatus', 'Yozib olindi! Tarjima tugmasini bosing.', 'ok');
   }
 
-  // Tarjima
+  // ✅ TO'G'RILANGAN TARJIMA FUNKSIYASI
   async function translate() {
     const text = document.getElementById('sourceText').value.trim();
+
     if (!text) {
       setStatus('mainStatus', 'Matn kiriting yoki gapiring!', 'err');
       return;
     }
 
+    const srcLang = document.getElementById('sourceLang').value;
+    const tgtLang = selectedTargetLang;
+
+    if (srcLang === tgtLang) {
+      setStatus('mainStatus', 'Manba va maqsad tili bir xil!', 'err');
+      return;
+    }
+
     setStatus('mainStatus', '<span class="loading"></span>Tarjima qilinmoqda...', 'info');
-    document.getElementById('resultBox').innerHTML = '<span class="result-placeholder">Tarjima qilinmoqda...</span>';
+    document.getElementById('resultBox').innerHTML =
+      '<span class="result-placeholder">Tarjima qilinmoqda...</span>';
+    translatedText = '';
 
     try {
-      const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=auto|${selectedTargetLang}`;
+      // MyMemory API — aniq til juftligi
+      const langpair = `${srcLang}|${tgtLang}`;
+      const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${langpair}`;
+
       const res = await fetch(url);
+      if (!res.ok) throw new Error('Server xatosi: ' + res.status);
+
       const data = await res.json();
 
       if (data.responseStatus === 200) {
         translatedText = data.responseData.translatedText;
+
+        // HTML entity larni tozalash
+        const txt = document.createElement('textarea');
+        txt.innerHTML = translatedText;
+        translatedText = txt.value;
+
         document.getElementById('resultBox').textContent = translatedText;
-        const langName = LANGS.find(l => l.code === selectedTargetLang)?.name || selectedTargetLang;
-        setStatus('mainStatus', `✅ ${langName} tiliga tarjima qilindi!`, 'ok');
+        const srcName = LANGS.find(l => l.code === srcLang)?.name || srcLang;
+        const tgtName = LANGS.find(l => l.code === tgtLang)?.name || tgtLang;
+        setStatus('mainStatus', `✅ ${srcName} → ${tgtName} tarjima qilindi!`, 'ok');
       } else {
-        throw new Error(data.responseDetails || 'Tarjima xatosi');
+        throw new Error(data.responseDetails || 'Tarjima amalga oshmadi');
       }
+
     } catch (err) {
-      document.getElementById('resultBox').innerHTML = '<span class="result-placeholder">Xatolik yuz berdi</span>';
-      setStatus('mainStatus', 'Xatolik: ' + err.message, 'err');
+      document.getElementById('resultBox').innerHTML =
+        '<span class="result-placeholder">Xatolik yuz berdi</span>';
+      setStatus('mainStatus', '❌ Xatolik: ' + err.message + '. Internet aloqasini tekshiring.', 'err');
     }
   }
 
-  // Tarjimani o'qib berish
   function speakResult() {
     if (!translatedText) {
       setStatus('resultStatus', 'Avval tarjima qiling!', 'err');
@@ -324,10 +354,10 @@
     utt.lang = selectedTargetLang;
     utt.onstart = () => setStatus('resultStatus', '🔊 O\'qilmoqda...', 'info');
     utt.onend   = () => setStatus('resultStatus', '', '');
+    utt.onerror = () => setStatus('resultStatus', 'Ovoz chiqmadi', 'err');
     speechSynthesis.speak(utt);
   }
 
-  // Nusxa
   function copyResult() {
     if (!translatedText) return;
     navigator.clipboard.writeText(translatedText)
@@ -338,7 +368,8 @@
     fullTranscript = '';
     translatedText = '';
     document.getElementById('sourceText').value = '';
-    document.getElementById('resultBox').innerHTML = '<span class="result-placeholder">Tarjima natijasi bu yerda chiqadi...</span>';
+    document.getElementById('resultBox').innerHTML =
+      '<span class="result-placeholder">Tarjima natijasi bu yerda chiqadi...</span>';
     setStatus('mainStatus', '', '');
     setStatus('resultStatus', '', '');
   }
@@ -348,6 +379,11 @@
     el.innerHTML = msg;
     el.className = 'status' + (type ? ' ' + type : '');
   }
+
+  // Enter tugmasi bilan tarjima
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 'Enter') translate();
+  });
 </script>
 </body>
 </html>
