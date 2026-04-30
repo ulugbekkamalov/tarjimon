@@ -2,85 +2,85 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Ovozli Tarjimon</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  body { font-family: Arial, sans-serif; background: #f5f5f5; color: #222; min-height: 100vh; }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem; }
-  h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .sub { font-size: 13px; color: #888; margin-bottom: 1.2rem; }
-  .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
-  .label { font-size: 11px; color: #888; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{font-family:Arial,sans-serif;background:#f5f5f5;color:#222;min-height:100vh}
+  .wrap{max-width:720px;margin:0 auto;padding:1.2rem 1rem 3rem}
+  h1{font-size:20px;font-weight:700;margin-bottom:3px}
+  .sub{font-size:13px;color:#888;margin-bottom:1.2rem}
+  .card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:1rem;margin-bottom:1rem}
+  .lbl{font-size:11px;color:#888;margin-bottom:7px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
 
   /* Nutq tili */
-  .slang-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
-  .slang-btn { padding: 7px 14px; border-radius: 20px; border: 1px solid #ddd; font-size: 13px; cursor: pointer; background: #f5f5f5; color: #555; transition: all .15s; touch-action: manipulation; }
-  .slang-btn.active { background: #222; color: #fff; border-color: #222; font-weight: 600; }
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .chip{padding:7px 14px;border-radius:20px;border:1px solid #ddd;font-size:13px;cursor:pointer;background:#f5f5f5;color:#555;touch-action:manipulation;transition:all .15s}
+  .chip.on{background:#222;color:#fff;border-color:#222;font-weight:600}
 
   /* Mikrofon */
-  .mic-wrap { display: flex; flex-direction: column; align-items: center; padding: 0.8rem 0 1rem; }
-  .mic-btn { width: 76px; height: 76px; border-radius: 50%; border: none; cursor: pointer; font-size: 30px; background: #222; color: #fff; display: flex; align-items: center; justify-content: center; touch-action: manipulation; transition: all .2s; }
-  .mic-btn:active { transform: scale(0.95); }
-  .mic-btn.recording { background: #e74c3c; animation: micPulse 1.2s infinite; }
-  @keyframes micPulse { 0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,0.4)} 50%{box-shadow:0 0 0 14px rgba(231,76,60,0)} }
-  .mic-hint { margin-top: 8px; font-size: 12px; color: #888; text-align: center; }
-  .rec-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #e74c3c; margin-right: 4px; animation: blink 1s infinite; }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+  .mic-wrap{display:flex;flex-direction:column;align-items:center;padding:.8rem 0 1rem}
+  .mic-btn{width:74px;height:74px;border-radius:50%;border:none;font-size:28px;background:#222;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;touch-action:manipulation;transition:all .2s}
+  .mic-btn:active{transform:scale(.93)}
+  .mic-btn.rec{background:#e74c3c;animation:mp 1.2s infinite}
+  @keyframes mp{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.4)}50%{box-shadow:0 0 0 14px rgba(231,76,60,0)}}
+  .mic-hint{margin-top:8px;font-size:12px;color:#888;text-align:center}
+  .rdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e74c3c;margin-right:4px;animation:blink 1s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
   /* Matn */
-  textarea { width: 100%; min-height: 100px; padding: 10px 12px; border-radius: 8px; border: 1px solid #ddd; background: #fafafa; font-size: 15px; color: #222; font-family: Arial, sans-serif; resize: vertical; outline: none; transition: border .15s; }
-  textarea:focus { border-color: #777; background: #fff; }
+  textarea{width:100%;min-height:100px;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:15px;color:#222;font-family:Arial,sans-serif;resize:vertical;outline:none}
+  textarea:focus{border-color:#777;background:#fff}
 
   /* Tugmalar */
-  .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-  .btn { padding: 11px 22px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; cursor: pointer; background: #fff; color: #222; font-family: Arial, sans-serif; touch-action: manipulation; transition: all .15s; }
-  .btn:active { transform: scale(0.97); }
-  .btn-primary { background: #222; color: #fff; border-color: #222; font-weight: 700; }
-  .btn-danger { color: #c0392b; border-color: #e0b0b0; }
+  .brow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .btn{padding:11px 20px;border-radius:8px;border:1px solid #ccc;font-size:14px;cursor:pointer;background:#fff;color:#222;font-family:Arial,sans-serif;touch-action:manipulation;transition:all .15s}
+  .btn:active{transform:scale(.96)}
+  .bp{background:#222;color:#fff;border-color:#222;font-weight:700}
+  .bd{color:#c0392b;border-color:#e0b0b0}
 
   /* Til grid */
-  .lang-search { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #ddd; background: #fafafa; font-size: 14px; color: #222; outline: none; margin-bottom: 10px; }
-  .lang-search:focus { border-color: #777; }
-  .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 6px; }
-  .lang-chip { padding: 9px 6px; border-radius: 8px; border: 1px solid #e0e0e0; font-size: 12px; cursor: pointer; background: #fafafa; color: #444; text-align: center; touch-action: manipulation; transition: all .15s; }
-  .lang-chip:active { transform: scale(0.96); }
-  .lang-chip.active { background: #222; color: #fff; border-color: #222; font-weight: 700; }
+  .lang-search{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:14px;color:#222;outline:none;margin-bottom:10px}
+  .lang-search:focus{border-color:#777}
+  .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px}
+  .lchip{padding:9px 6px;border-radius:8px;border:1px solid #e0e0e0;font-size:12px;cursor:pointer;background:#fafafa;color:#444;text-align:center;touch-action:manipulation;transition:all .15s;line-height:1.4}
+  .lchip:active{transform:scale(.95)}
+  .lchip.on{background:#222;color:#fff;border-color:#222;font-weight:700}
 
   /* Natija */
-  .result-outer { position: relative; }
-  .result-box { width: 100%; min-height: 90px; padding: 10px 12px; border-radius: 8px; border: 1px solid #ddd; background: #fafafa; font-size: 15px; color: #222; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
-  .result-placeholder { color: #bbb; font-size: 14px; }
-  .copy-btn { position: absolute; top: 8px; right: 8px; padding: 5px 10px; border-radius: 6px; border: 1px solid #ddd; font-size: 12px; cursor: pointer; background: #fff; color: #555; touch-action: manipulation; }
-  .speak-btn { display: inline-block; margin-top: 10px; padding: 8px 16px; border-radius: 20px; border: 1px solid #ddd; font-size: 13px; cursor: pointer; background: #f5f5f5; color: #555; touch-action: manipulation; }
+  .res-wrap{position:relative}
+  .res-box{width:100%;min-height:90px;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:15px;color:#222;line-height:1.6;white-space:pre-wrap;word-break:break-word}
+  .res-placeholder{color:#bbb;font-size:14px}
+  .copy-btn{position:absolute;top:8px;right:8px;padding:5px 10px;border-radius:6px;border:1px solid #ddd;font-size:12px;cursor:pointer;background:#fff;color:#555;touch-action:manipulation}
+  .speak-res-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:9px 16px;border-radius:20px;border:1px solid #ddd;font-size:13px;cursor:pointer;background:#f5f5f5;color:#555;touch-action:manipulation;transition:all .15s}
+  .speak-res-btn:active{transform:scale(.96)}
+  .speak-res-btn.playing{background:#e8f5e9;border-color:#81c784;color:#2e7d32;font-weight:600}
 
   /* Status */
-  .status { font-size: 13px; margin-top: 8px; min-height: 18px; line-height: 1.4; }
-  .ok   { color: #27ae60; font-weight: 600; }
-  .err  { color: #c0392b; font-weight: 600; }
-  .info { color: #2980b9; }
-  .spin { display: inline-block; width: 13px; height: 13px; border: 2px solid #ddd; border-top-color: #333; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: 5px; }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  .st{font-size:13px;margin-top:8px;min-height:18px;line-height:1.5}
+  .ok{color:#27ae60;font-weight:600}
+  .er{color:#c0392b;font-weight:600}
+  .inf{color:#2980b9}
+  .spin{display:inline-block;width:13px;height:13px;border:2px solid #ddd;border-top-color:#333;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:5px}
+  @keyframes spin{to{transform:rotate(360deg)}}
 
-  @media (max-width: 400px) {
-    .lang-grid { grid-template-columns: repeat(3, 1fr); }
-    .slang-btn { font-size: 12px; padding: 6px 10px; }
+  @media(max-width:400px){
+    .lgrid{grid-template-columns:repeat(3,1fr)}
+    .chips{gap:4px}
+    .chip{font-size:12px;padding:6px 10px}
   }
-
-  @media (prefers-color-scheme: dark) {
-    body { background: #1a1a1a; color: #eee; }
-    .card { background: #252525; border-color: #333; }
-    textarea, .result-box, .lang-search { background: #2a2a2a; color: #eee; border-color: #444; }
-    .btn { background: #2a2a2a; color: #eee; border-color: #444; }
-    .btn-primary { background: #eee; color: #111; border-color: #eee; }
-    .slang-btn { background: #2a2a2a; color: #ccc; border-color: #444; }
-    .slang-btn.active { background: #eee; color: #111; border-color: #eee; }
-    .lang-chip { background: #2a2a2a; color: #ccc; border-color: #444; }
-    .lang-chip.active { background: #eee; color: #111; border-color: #eee; }
-    .copy-btn, .speak-btn { background: #2a2a2a; color: #ccc; border-color: #444; }
-    .mic-btn { background: #eee; color: #111; }
-    .mic-btn.recording { background: #e74c3c; color: #fff; }
+  @media(prefers-color-scheme:dark){
+    body{background:#1a1a1a;color:#eee}
+    .card{background:#252525;border-color:#333}
+    textarea,.res-box,.lang-search{background:#2a2a2a!important;color:#eee!important;border-color:#444!important}
+    .btn{background:#2a2a2a;color:#eee;border-color:#444}
+    .bp{background:#eee;color:#111;border-color:#eee}
+    .chip,.lchip{background:#2a2a2a;color:#ccc;border-color:#444}
+    .chip.on,.lchip.on{background:#eee;color:#111;border-color:#eee}
+    .copy-btn,.speak-res-btn{background:#2a2a2a;color:#ccc;border-color:#444}
+    .mic-btn{background:#eee;color:#111}
+    .mic-btn.rec{background:#e74c3c;color:#fff}
   }
 </style>
 </head>
@@ -91,121 +91,128 @@
 
   <!-- MANBA -->
   <div class="card">
-    <div class="label">Nutq tili (mikrofon uchun)</div>
-    <div class="slang-row" id="slangRow">
-      <button class="slang-btn active" data-lang="uz-UZ">🇺🇿 O'zbek</button>
-      <button class="slang-btn" data-lang="ru-RU">🇷🇺 Rus</button>
-      <button class="slang-btn" data-lang="en-US">🇺🇸 Ingliz</button>
-      <button class="slang-btn" data-lang="tr-TR">🇹🇷 Turk</button>
-      <button class="slang-btn" data-lang="ar-SA">🇸🇦 Arab</button>
-      <button class="slang-btn" data-lang="de-DE">🇩🇪 Nemis</button>
-      <button class="slang-btn" data-lang="fr-FR">🇫🇷 Fransuz</button>
+    <div class="lbl">Nutq tili (mikrofon uchun)</div>
+    <div class="chips" id="slangRow">
+      <button class="chip on" data-lang="uz-UZ">🇺🇿 O'zbek</button>
+      <button class="chip" data-lang="ru-RU">🇷🇺 Rus</button>
+      <button class="chip" data-lang="en-US">🇺🇸 Ingliz</button>
+      <button class="chip" data-lang="tr-TR">🇹🇷 Turk</button>
+      <button class="chip" data-lang="ar-SA">🇸🇦 Arab</button>
+      <button class="chip" data-lang="de-DE">🇩🇪 Nemis</button>
+      <button class="chip" data-lang="fr-FR">🇫🇷 Fransuz</button>
     </div>
 
-    <div class="label">Mikrofon</div>
+    <div class="lbl">Mikrofon</div>
     <div class="mic-wrap">
       <button class="mic-btn" id="micBtn" onclick="toggleRec()">🎤</button>
       <div class="mic-hint" id="micHint">Bosing va gapiring</div>
     </div>
 
-    <div class="label">Matn</div>
-    <textarea id="sourceText" placeholder="Bu yerga yozing yoki mikrofon orqali gapiring..."></textarea>
-
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="translate()">🌐 Tarjima qil</button>
-      <button class="btn btn-danger" onclick="clearAll()">Tozala</button>
+    <div class="lbl">Matn</div>
+    <textarea id="srcText" placeholder="Bu yerga yozing yoki mikrofon orqali gapiring..."></textarea>
+    <div class="brow">
+      <button class="btn bp" onclick="doTranslate()">🌐 Tarjima qil</button>
+      <button class="btn bd" onclick="clearAll()">Tozala</button>
     </div>
-    <div class="status" id="mainStatus"></div>
+    <div class="st" id="mainSt"></div>
   </div>
 
   <!-- MAQSAD TIL -->
   <div class="card">
-    <div class="label">Qaysi tilga tarjima qilinsin?</div>
-    <input class="lang-search" type="search" id="langSearch"
-      placeholder="Qidirish... (ingliz, rus, o'zbek...)"
+    <div class="lbl">Qaysi tilga tarjima qilinsin?</div>
+    <input class="lang-search" type="search" id="langQ"
+      placeholder="Qidirish... (ingliz, rus, o'zbek, arab...)"
       oninput="filterLangs()" autocomplete="off">
-    <div class="lang-grid" id="langGrid"></div>
+    <div class="lgrid" id="lgrid"></div>
   </div>
 
   <!-- NATIJA -->
   <div class="card">
-    <div class="label">Tarjima natijasi</div>
-    <div class="result-outer">
-      <div class="result-box" id="resultBox">
-        <span class="result-placeholder">Natija bu yerda chiqadi...</span>
+    <div class="lbl">Tarjima natijasi</div>
+    <div class="res-wrap">
+      <div class="res-box" id="resBox">
+        <span class="res-placeholder">Natija bu yerda chiqadi...</span>
       </div>
-      <button class="copy-btn" onclick="copyResult()">Nusxa</button>
+      <button class="copy-btn" onclick="copyRes()">Nusxa</button>
     </div>
-    <button class="speak-btn" onclick="speakResult()">🔊 O'qib ber</button>
-    <div class="status" id="resultStatus"></div>
+    <button class="speak-res-btn" id="speakResBtn" onclick="speakResult()">
+      🔊 Tarjimani o'qib ber
+    </button>
+    <div class="st" id="resSt"></div>
   </div>
 </div>
 
 <script>
+// ===== TILLAR =====
 const LANGS = [
-  { code:'uz', name:"O'zbek",    flag:'🇺🇿' },
-  { code:'ru', name:'Rus',       flag:'🇷🇺' },
-  { code:'en', name:'Ingliz',    flag:'🇺🇸' },
-  { code:'tr', name:'Turk',      flag:'🇹🇷' },
-  { code:'ar', name:'Arab',      flag:'🇸🇦' },
-  { code:'de', name:'Nemis',     flag:'🇩🇪' },
-  { code:'fr', name:'Fransuz',   flag:'🇫🇷' },
-  { code:'es', name:'Ispan',     flag:'🇪🇸' },
-  { code:'it', name:'Italyan',   flag:'🇮🇹' },
-  { code:'pt', name:'Portugal',  flag:'🇵🇹' },
-  { code:'zh', name:'Xitoy',     flag:'🇨🇳' },
-  { code:'ja', name:'Yapon',     flag:'🇯🇵' },
-  { code:'ko', name:'Koreys',    flag:'🇰🇷' },
-  { code:'hi', name:'Hind',      flag:'🇮🇳' },
-  { code:'fa', name:'Fors',      flag:'🇮🇷' },
-  { code:'kk', name:'Qozoq',     flag:'🇰🇿' },
-  { code:'az', name:'Ozarbayjon',flag:'🇦🇿' },
-  { code:'uk', name:'Ukrain',    flag:'🇺🇦' },
-  { code:'pl', name:'Polyak',    flag:'🇵🇱' },
-  { code:'nl', name:'Golland',   flag:'🇳🇱' },
-  { code:'he', name:'Ibroniy',   flag:'🇮🇱' },
-  { code:'id', name:'Indonez',   flag:'🇮🇩' },
-  { code:'ky', name:"Qirg'iz",   flag:'🇰🇬' },
-  { code:'sv', name:'Shved',     flag:'🇸🇪' },
+  {code:'uz',name:"O'zbek",    flag:'🇺🇿',speech:'uz-UZ'},
+  {code:'ru',name:'Rus',       flag:'🇷🇺',speech:'ru-RU'},
+  {code:'en',name:'Ingliz',    flag:'🇺🇸',speech:'en-US'},
+  {code:'tr',name:'Turk',      flag:'🇹🇷',speech:'tr-TR'},
+  {code:'ar',name:'Arab',      flag:'🇸🇦',speech:'ar-SA'},
+  {code:'de',name:'Nemis',     flag:'🇩🇪',speech:'de-DE'},
+  {code:'fr',name:'Fransuz',   flag:'🇫🇷',speech:'fr-FR'},
+  {code:'es',name:'Ispan',     flag:'🇪🇸',speech:'es-ES'},
+  {code:'it',name:'Italyan',   flag:'🇮🇹',speech:'it-IT'},
+  {code:'pt',name:'Portugal',  flag:'🇵🇹',speech:'pt-PT'},
+  {code:'zh',name:'Xitoy',     flag:'🇨🇳',speech:'zh-CN'},
+  {code:'ja',name:'Yapon',     flag:'🇯🇵',speech:'ja-JP'},
+  {code:'ko',name:'Koreys',    flag:'🇰🇷',speech:'ko-KR'},
+  {code:'hi',name:'Hind',      flag:'🇮🇳',speech:'hi-IN'},
+  {code:'fa',name:'Fors',      flag:'🇮🇷',speech:'fa-IR'},
+  {code:'kk',name:'Qozoq',     flag:'🇰🇿',speech:'kk-KZ'},
+  {code:'az',name:'Ozarbayjon',flag:'🇦🇿',speech:'az-AZ'},
+  {code:'uk',name:'Ukrain',    flag:'🇺🇦',speech:'uk-UA'},
+  {code:'pl',name:'Polyak',    flag:'🇵🇱',speech:'pl-PL'},
+  {code:'nl',name:'Golland',   flag:'🇳🇱',speech:'nl-NL'},
+  {code:'he',name:'Ibroniy',   flag:'🇮🇱',speech:'he-IL'},
+  {code:'id',name:'Indonez',   flag:'🇮🇩',speech:'id-ID'},
+  {code:'sv',name:'Shved',     flag:'🇸🇪',speech:'sv-SE'},
+  {code:'ky',name:"Qirg'iz",   flag:'🇰🇬',speech:'ky-KG'},
 ];
 
 let targetLang = 'ru';
+let targetSpeech = 'ru-RU';
 let speechLang = 'uz-UZ';
 let recognition = null;
 let isRecording = false;
-let finalTranscript = '';
+let finalText = '';
 let translatedText = '';
+let isSpeaking = false;
 
-// --- Til grid ---
+// ===== TIL GRID =====
 function renderLangs(list) {
-  document.getElementById('langGrid').innerHTML = list.map(l =>
-    `<div class="lang-chip${l.code===targetLang?' active':''}"
-      onclick="selectLang('${l.code}',this)">
+  document.getElementById('lgrid').innerHTML = list.map(l =>
+    `<div class="lchip${l.code===targetLang?' on':''}" onclick="pickLang('${l.code}','${l.speech}',this)">
       ${l.flag}<br>${l.name}
     </div>`
   ).join('');
 }
+
 function filterLangs() {
-  const q = document.getElementById('langSearch').value.toLowerCase();
+  const q = document.getElementById('langQ').value.toLowerCase();
   renderLangs(LANGS.filter(l => l.name.toLowerCase().includes(q) || l.code.includes(q)));
 }
-function selectLang(code, el) {
+
+function pickLang(code, speech, el) {
   targetLang = code;
-  document.querySelectorAll('.lang-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
+  targetSpeech = speech;
+  document.querySelectorAll('.lchip').forEach(c => c.classList.remove('on'));
+  el.classList.add('on');
 }
+
 renderLangs(LANGS);
 
-// --- Nutq tili ---
+// ===== NUTQ TILI =====
 document.getElementById('slangRow').addEventListener('click', e => {
-  const btn = e.target.closest('.slang-btn');
+  const btn = e.target.closest('.chip');
   if (!btn) return;
   speechLang = btn.dataset.lang;
-  document.querySelectorAll('.slang-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  document.querySelectorAll('#slangRow .chip').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
 });
 
-// --- Mikrofon ---
+// ===== MIKROFON =====
 function toggleRec() {
   if (isRecording) stopRec();
   else startRec();
@@ -214,204 +221,270 @@ function toggleRec() {
 function startRec() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) {
-    setStatus('mainStatus', 'Mikrofon qo\'llab-quvvatlanmaydi. Chrome ishlatib ko\'ring.', 'err');
+    setSt('mainSt', 'Chrome brauzer kerak. Telegram brauzerida ishlamaydi.', 'er');
     return;
   }
 
-  // Eski recognition ni to'xtat
+  // Eski sessiyani to'liq o'chir
   if (recognition) {
-    recognition.onend = null;
-    recognition.stop();
+    try { recognition.abort(); } catch(e){}
+    recognition = null;
   }
 
-  finalTranscript = '';
-  document.getElementById('sourceText').value = '';
+  finalText = '';
+  document.getElementById('srcText').value = '';
 
   recognition = new SR();
-  recognition.continuous = false;      // ← MUHIM: false qilamiz
-  recognition.interimResults = true;
   recognition.lang = speechLang;
+  recognition.continuous = false;      // MUHIM: false — takrorlanishni oldini oladi
+  recognition.interimResults = true;
   recognition.maxAlternatives = 1;
+
+  let restartTimer = null;
 
   recognition.onstart = () => {
     isRecording = true;
-    document.getElementById('micBtn').classList.add('recording');
+    document.getElementById('micBtn').classList.add('rec');
     document.getElementById('micBtn').textContent = '⏹';
-    document.getElementById('micHint').innerHTML =
-      '<span class="rec-dot"></span>Yozilmoqda... (to\'xtatish uchun bosing)';
-    setStatus('mainStatus', '', '');
+    document.getElementById('micHint').innerHTML = '<span class="rdot"></span>Yozilmoqda...';
+    setSt('mainSt','','');
   };
 
   recognition.onresult = e => {
+    // Faqat yangi natijalarni olish — takrorlanishni oldini oladi
     let interim = '';
-    // Faqat yangi natijalarni olish
     for (let i = e.resultIndex; i < e.results.length; i++) {
-      const t = e.results[i][0].transcript;
       if (e.results[i].isFinal) {
-        finalTranscript += t + ' ';
+        finalText += e.results[i][0].transcript + ' ';
       } else {
-        interim = t;
+        interim = e.results[i][0].transcript;
       }
     }
-    document.getElementById('sourceText').value =
-      (finalTranscript + interim).trim();
+    document.getElementById('srcText').value = (finalText + interim).trim();
   };
 
   recognition.onerror = e => {
-    if (e.error === 'no-speech') {
-      // Jimlik — davom et
-      if (isRecording) restartRec();
+    if (e.error === 'no-speech' || e.error === 'aborted') {
+      if (isRecording) scheduleRestart();
       return;
     }
-    setStatus('mainStatus', 'Mikrofon xatosi: ' + e.error, 'err');
+    setSt('mainSt', 'Mikrofon xatosi: ' + e.error, 'er');
     stopRecUI();
   };
 
   recognition.onend = () => {
-    // Agar hali yozilayotgan bo'lsa — qayta boshlash
-    if (isRecording) restartRec();
+    if (isRecording) scheduleRestart();
   };
 
-  recognition.start();
-}
+  function scheduleRestart() {
+    clearTimeout(restartTimer);
+    restartTimer = setTimeout(() => {
+      if (!isRecording) return;
+      try { recognition.start(); } catch(e) { stopRecUI(); }
+    }, 300);
+  }
 
-function restartRec() {
-  if (!isRecording) return;
-  setTimeout(() => {
-    try {
-      recognition.start();
-    } catch(e) {
-      // Allaqachon ishlaayotgan bo'lsa — ignore
-    }
-  }, 200);
+  try { recognition.start(); } catch(e) {
+    setSt('mainSt', 'Mikrofon ochilmadi: ' + e.message, 'er');
+  }
 }
 
 function stopRec() {
   isRecording = false;
-  if (recognition) {
-    recognition.onend = null;
-    recognition.stop();
-  }
+  if (recognition) { try { recognition.stop(); } catch(e){} }
   stopRecUI();
-  const text = document.getElementById('sourceText').value.trim();
-  if (text) setStatus('mainStatus', 'Yozib olindi! Tarjima tugmasini bosing.', 'ok');
+  const t = document.getElementById('srcText').value.trim();
+  if (t) setSt('mainSt', 'Yozib olindi! Tarjima tugmasini bosing.', 'ok');
 }
 
 function stopRecUI() {
   isRecording = false;
   const btn = document.getElementById('micBtn');
-  btn.classList.remove('recording');
+  btn.classList.remove('rec');
   btn.textContent = '🎤';
   document.getElementById('micHint').textContent = 'Bosing va gapiring';
 }
 
-// --- Tarjima ---
-async function translate() {
-  const text = document.getElementById('sourceText').value.trim();
-  if (!text) { setStatus('mainStatus', 'Matn kiriting!', 'err'); return; }
+// ===== TARJIMA =====
+async function doTranslate() {
+  const text = document.getElementById('srcText').value.trim();
+  if (!text) { setSt('mainSt', 'Matn kiriting!', 'er'); return; }
 
-  setStatus('mainStatus', '<span class="spin"></span>Tarjima qilinmoqda...', 'info');
-  document.getElementById('resultBox').innerHTML =
-    '<span class="result-placeholder">Tarjima qilinmoqda...</span>';
+  setSt('mainSt', '<span class="spin"></span>Tarjima qilinmoqda...', 'inf');
+  document.getElementById('resBox').innerHTML = '<span class="res-placeholder">Tarjima qilinmoqda...</span>';
+  document.getElementById('speakResBtn').classList.remove('playing');
   translatedText = '';
 
-  // 1-urinish: Google Translate (bepul endpoint)
+  // 1-urinish: Google Translate bepul API
   try {
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+    const url = 'https://translate.googleapis.com/translate_a/single'
+      + '?client=gtx&sl=auto&tl=' + targetLang
+      + '&dt=t&q=' + encodeURIComponent(text);
+
     const res = await fetch(url);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
 
-    if (data && data[0]) {
-      translatedText = data[0]
-        .filter(item => item && item[0])
-        .map(item => item[0])
+    if (data && data[0] && data[0].length) {
+      const result = data[0]
+        .filter(x => x && x[0])
+        .map(x => x[0])
         .join('');
 
-      if (translatedText) {
-        document.getElementById('resultBox').textContent = translatedText;
-        const tgtName = LANGS.find(l => l.code === targetLang)?.name || targetLang;
-        const srcLang = data[2] ? data[2].toUpperCase() : 'AUTO';
-        setStatus('mainStatus', `✅ ${tgtName} tiliga tarjima qilindi! (${srcLang})`, 'ok');
+      if (result.trim()) {
+        translatedText = result.trim();
+        showResult();
+        const tName = LANGS.find(l => l.code === targetLang)?.name || targetLang;
+        const srcDetected = (data[2] || '').toUpperCase();
+        setSt('mainSt', `✅ ${tName} tiliga tarjima qilindi${srcDetected ? ' (' + srcDetected + ')' : ''}`, 'ok');
         return;
       }
     }
     throw new Error('Natija bo\'sh');
 
-  } catch (e1) {
-    // 2-urinish: MyMemory API
+  } catch(e1) {
+    // 2-urinish: MyMemory zaxira
     try {
       const srcCode = speechLang.split('-')[0];
-      const url2 = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${srcCode}|${targetLang}`;
+      const url2 = 'https://api.mymemory.translated.net/get'
+        + '?q=' + encodeURIComponent(text)
+        + '&langpair=' + srcCode + '|' + targetLang;
+
       const res2 = await fetch(url2);
-      const data2 = await res2.json();
+      const d2 = await res2.json();
 
-      if (data2.responseStatus === 200 && data2.responseData?.translatedText) {
+      if (d2.responseStatus === 200 && d2.responseData?.translatedText) {
         const tmp = document.createElement('div');
-        tmp.innerHTML = data2.responseData.translatedText;
-        translatedText = tmp.textContent || tmp.innerText || '';
+        tmp.innerHTML = d2.responseData.translatedText;
+        translatedText = (tmp.textContent || tmp.innerText || '').trim();
 
-        document.getElementById('resultBox').textContent = translatedText;
-        const tgtName = LANGS.find(l => l.code === targetLang)?.name || targetLang;
-        setStatus('mainStatus', `✅ ${tgtName} tiliga tarjima qilindi!`, 'ok');
-        return;
+        if (translatedText) {
+          showResult();
+          const tName = LANGS.find(l => l.code === targetLang)?.name || targetLang;
+          setSt('mainSt', `✅ ${tName} tiliga tarjima qilindi!`, 'ok');
+          return;
+        }
       }
-      throw new Error('MyMemory xatosi');
+      throw new Error('MyMemory ham ishlamadi');
 
-    } catch (e2) {
-      document.getElementById('resultBox').innerHTML =
-        '<span class="result-placeholder">Tarjima amalga oshmadi</span>';
-      setStatus('mainStatus', '❌ Internet aloqasini tekshiring va qayta urining.', 'err');
+    } catch(e2) {
+      document.getElementById('resBox').innerHTML =
+        '<span class="res-placeholder">Tarjima amalga oshmadi. Internet aloqasini tekshiring.</span>';
+      setSt('mainSt', '❌ Xatolik. Qayta urinib ko\'ring.', 'er');
     }
   }
 }
 
+function showResult() {
+  document.getElementById('resBox').textContent = translatedText;
+}
+
+// ===== TARJIMANI O'QIB BERISH =====
 function speakResult() {
-  if (!translatedText) { setStatus('resultStatus', 'Avval tarjima qiling!', 'err'); return; }
+  if (!translatedText) {
+    setSt('resSt', 'Avval tarjima qiling!', 'er');
+    return;
+  }
+
+  if (isSpeaking) {
+    speechSynthesis.cancel();
+    isSpeaking = false;
+    document.getElementById('speakResBtn').classList.remove('playing');
+    document.getElementById('speakResBtn').textContent = '🔊 Tarjimani o\'qib ber';
+    setSt('resSt', '', '');
+    return;
+  }
+
   speechSynthesis.cancel();
+
   const utt = new SpeechSynthesisUtterance(translatedText);
-  utt.lang = targetLang;
-  utt.onstart = () => setStatus('resultStatus', '🔊 O\'qilmoqda...', 'info');
-  utt.onend   = () => setStatus('resultStatus', '', '');
-  utt.onerror = () => setStatus('resultStatus', 'Ovoz chiqmadi', 'err');
+
+  // Maqsad til speech kodini topish
+  const found = LANGS.find(l => l.code === targetLang);
+  utt.lang = found ? found.speech : targetLang;
+
+  utt.rate  = 1;
+  utt.pitch = 1;
+
+  utt.onstart = () => {
+    isSpeaking = true;
+    const btn = document.getElementById('speakResBtn');
+    btn.classList.add('playing');
+    btn.textContent = '⏹ To\'xtat';
+    setSt('resSt', '🔊 O\'qilmoqda...', 'inf');
+  };
+
+  utt.onend = () => {
+    isSpeaking = false;
+    const btn = document.getElementById('speakResBtn');
+    btn.classList.remove('playing');
+    btn.textContent = '🔊 Tarjimani o\'qib ber';
+    setSt('resSt', '', '');
+  };
+
+  utt.onerror = () => {
+    isSpeaking = false;
+    document.getElementById('speakResBtn').classList.remove('playing');
+    document.getElementById('speakResBtn').textContent = '🔊 Tarjimani o\'qib ber';
+    setSt('resSt', 'Ovoz chiqmadi', 'er');
+  };
+
+  // iOS bug fix
+  const keepAlive = setInterval(() => {
+    if (!speechSynthesis.speaking) { clearInterval(keepAlive); return; }
+    speechSynthesis.pause();
+    speechSynthesis.resume();
+  }, 10000);
+
   speechSynthesis.speak(utt);
 }
 
-function copyResult() {
+// ===== NUSXA =====
+function copyRes() {
   if (!translatedText) return;
-  navigator.clipboard.writeText(translatedText)
-    .then(() => setStatus('resultStatus', 'Nusxa olindi!', 'ok'))
-    .catch(() => {
-      // Eski usul
-      const ta = document.createElement('textarea');
-      ta.value = translatedText;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      setStatus('resultStatus', 'Nusxa olindi!', 'ok');
-    });
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(translatedText)
+      .then(() => setSt('resSt', 'Nusxa olindi!', 'ok'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = translatedText;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    setSt('resSt', 'Nusxa olindi!', 'ok');
+  }
 }
 
+// ===== TOZALA =====
 function clearAll() {
-  finalTranscript = '';
+  finalText = '';
   translatedText = '';
-  document.getElementById('sourceText').value = '';
-  document.getElementById('resultBox').innerHTML =
-    '<span class="result-placeholder">Natija bu yerda chiqadi...</span>';
-  setStatus('mainStatus', '', '');
-  setStatus('resultStatus', '', '');
+  isSpeaking = false;
+  speechSynthesis.cancel();
+  document.getElementById('srcText').value = '';
+  document.getElementById('resBox').innerHTML = '<span class="res-placeholder">Natija bu yerda chiqadi...</span>';
+  document.getElementById('speakResBtn').classList.remove('playing');
+  document.getElementById('speakResBtn').textContent = '🔊 Tarjimani o\'qib ber';
+  setSt('mainSt', '', '');
+  setSt('resSt', '', '');
 }
 
-function setStatus(id, msg, type) {
+function setSt(id, msg, type) {
   const el = document.getElementById(id);
+  if (!el) return;
   el.innerHTML = msg;
-  el.className = 'status ' + (type || '');
+  el.className = 'st ' + (type || '');
 }
 
-// Ctrl+Enter — tarjima
+// Ctrl+Enter bilan tarjima
 document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.key === 'Enter') translate();
+  if (e.ctrlKey && e.key === 'Enter') doTranslate();
+});
+
+// Sahifa yashirilganda mikrofon to'xtasin
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && isRecording) stopRec();
 });
 </script>
 </body>
