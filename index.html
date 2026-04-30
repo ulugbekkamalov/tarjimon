@@ -6,82 +6,82 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Ovozli Tarjimon</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-  body{font-family:Arial,sans-serif;background:#f5f5f5;color:#222;min-height:100vh}
-  .wrap{max-width:720px;margin:0 auto;padding:1.2rem 1rem 3rem}
-  h1{font-size:20px;font-weight:700;margin-bottom:3px}
-  .sub{font-size:13px;color:#888;margin-bottom:1.2rem}
-  .card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:1rem;margin-bottom:1rem}
-  .lbl{font-size:11px;color:#888;margin-bottom:7px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:Arial,sans-serif;background:#f5f5f5;color:#222;min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding:1.2rem 1rem 3rem}
+h1{font-size:20px;font-weight:700;margin-bottom:3px}
+.sub{font-size:13px;color:#888;margin-bottom:1.2rem}
+.card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:1rem;margin-bottom:1rem}
+.lbl{font-size:11px;color:#888;margin-bottom:7px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.chip{padding:7px 14px;border-radius:20px;border:1px solid #ddd;font-size:13px;cursor:pointer;background:#f5f5f5;color:#555;touch-action:manipulation;transition:all .15s}
+.chip.on{background:#222;color:#fff;border-color:#222;font-weight:600}
+.mic-wrap{display:flex;flex-direction:column;align-items:center;padding:.8rem 0 1rem}
+.mic-btn{width:74px;height:74px;border-radius:50%;border:none;font-size:28px;background:#222;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;touch-action:manipulation;transition:all .2s}
+.mic-btn:active{transform:scale(.93)}
+.mic-btn.rec{background:#e74c3c;animation:mp 1.2s infinite}
+@keyframes mp{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.4)}50%{box-shadow:0 0 0 14px rgba(231,76,60,0)}}
+.mic-hint{margin-top:8px;font-size:12px;color:#888;text-align:center}
+.rdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e74c3c;margin-right:4px;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+textarea{width:100%;min-height:100px;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:15px;color:#222;font-family:Arial,sans-serif;resize:vertical;outline:none}
+textarea:focus{border-color:#777;background:#fff}
+.brow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:11px 20px;border-radius:8px;border:1px solid #ccc;font-size:14px;cursor:pointer;background:#fff;color:#222;font-family:Arial,sans-serif;touch-action:manipulation;transition:all .15s}
+.btn:active{transform:scale(.96)}
+.bp{background:#222;color:#fff;border-color:#222;font-weight:700}
+.bd{color:#c0392b;border-color:#e0b0b0}
+.lang-search{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:14px;color:#222;outline:none;margin-bottom:10px}
+.lang-search:focus{border-color:#777}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px}
+.lchip{padding:9px 6px;border-radius:8px;border:1px solid #e0e0e0;font-size:12px;cursor:pointer;background:#fafafa;color:#444;text-align:center;touch-action:manipulation;transition:all .15s;line-height:1.4}
+.lchip:active{transform:scale(.95)}
+.lchip.on{background:#222;color:#fff;border-color:#222;font-weight:700}
+.res-wrap{position:relative}
+.res-box{width:100%;min-height:90px;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:15px;color:#222;line-height:1.6;white-space:pre-wrap;word-break:break-word}
+.res-ph{color:#bbb;font-size:14px}
+.copy-btn{position:absolute;top:8px;right:8px;padding:5px 10px;border-radius:6px;border:1px solid #ddd;font-size:12px;cursor:pointer;background:#fff;color:#555;touch-action:manipulation}
 
-  /* Nutq tili */
-  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-  .chip{padding:7px 14px;border-radius:20px;border:1px solid #ddd;font-size:13px;cursor:pointer;background:#f5f5f5;color:#555;touch-action:manipulation;transition:all .15s}
-  .chip.on{background:#222;color:#fff;border-color:#222;font-weight:600}
+/* Ovoz tanlash */
+.voice-pick{margin-top:12px;padding:12px;background:#f9f9f9;border:1px solid #eee;border-radius:10px}
+.gender-row{display:flex;gap:8px;margin-bottom:10px}
+.gbtn{flex:1;padding:10px 8px;border-radius:8px;border:1px solid #ddd;font-size:14px;cursor:pointer;background:#fafafa;touch-action:manipulation;text-align:center;transition:all .15s}
+.gbtn:active{transform:scale(.96)}
+.gbtn.f-on{background:#fce8f3;border-color:#d063a0;color:#a01a6e;font-weight:700}
+.gbtn.m-on{background:#e8f0fe;border-color:#4a7fd4;color:#1a56a0;font-weight:700}
+.voice-info{font-size:13px;color:#555;margin-bottom:10px;min-height:18px;line-height:1.5}
+.voice-info b{font-weight:700;color:#222}
+.speak-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:20px;border:1px solid #ddd;font-size:13px;cursor:pointer;background:#f5f5f5;color:#555;touch-action:manipulation;transition:all .15s}
+.speak-btn:active{transform:scale(.96)}
+.speak-btn.playing{background:#e8f5e9;border-color:#81c784;color:#2e7d32;font-weight:600}
 
-  /* Mikrofon */
-  .mic-wrap{display:flex;flex-direction:column;align-items:center;padding:.8rem 0 1rem}
-  .mic-btn{width:74px;height:74px;border-radius:50%;border:none;font-size:28px;background:#222;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;touch-action:manipulation;transition:all .2s}
-  .mic-btn:active{transform:scale(.93)}
-  .mic-btn.rec{background:#e74c3c;animation:mp 1.2s infinite}
-  @keyframes mp{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.4)}50%{box-shadow:0 0 0 14px rgba(231,76,60,0)}}
-  .mic-hint{margin-top:8px;font-size:12px;color:#888;text-align:center}
-  .rdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e74c3c;margin-right:4px;animation:blink 1s infinite}
-  @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.st{font-size:13px;margin-top:8px;min-height:18px;line-height:1.5}
+.ok{color:#27ae60;font-weight:600}
+.er{color:#c0392b;font-weight:600}
+.inf{color:#2980b9}
+.spin{display:inline-block;width:13px;height:13px;border:2px solid #ddd;border-top-color:#333;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:5px}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-  /* Matn */
-  textarea{width:100%;min-height:100px;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:15px;color:#222;font-family:Arial,sans-serif;resize:vertical;outline:none}
-  textarea:focus{border-color:#777;background:#fff}
-
-  /* Tugmalar */
-  .brow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-  .btn{padding:11px 20px;border-radius:8px;border:1px solid #ccc;font-size:14px;cursor:pointer;background:#fff;color:#222;font-family:Arial,sans-serif;touch-action:manipulation;transition:all .15s}
-  .btn:active{transform:scale(.96)}
-  .bp{background:#222;color:#fff;border-color:#222;font-weight:700}
-  .bd{color:#c0392b;border-color:#e0b0b0}
-
-  /* Til grid */
-  .lang-search{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:14px;color:#222;outline:none;margin-bottom:10px}
-  .lang-search:focus{border-color:#777}
-  .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px}
-  .lchip{padding:9px 6px;border-radius:8px;border:1px solid #e0e0e0;font-size:12px;cursor:pointer;background:#fafafa;color:#444;text-align:center;touch-action:manipulation;transition:all .15s;line-height:1.4}
-  .lchip:active{transform:scale(.95)}
-  .lchip.on{background:#222;color:#fff;border-color:#222;font-weight:700}
-
-  /* Natija */
-  .res-wrap{position:relative}
-  .res-box{width:100%;min-height:90px;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:15px;color:#222;line-height:1.6;white-space:pre-wrap;word-break:break-word}
-  .res-placeholder{color:#bbb;font-size:14px}
-  .copy-btn{position:absolute;top:8px;right:8px;padding:5px 10px;border-radius:6px;border:1px solid #ddd;font-size:12px;cursor:pointer;background:#fff;color:#555;touch-action:manipulation}
-  .speak-res-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:9px 16px;border-radius:20px;border:1px solid #ddd;font-size:13px;cursor:pointer;background:#f5f5f5;color:#555;touch-action:manipulation;transition:all .15s}
-  .speak-res-btn:active{transform:scale(.96)}
-  .speak-res-btn.playing{background:#e8f5e9;border-color:#81c784;color:#2e7d32;font-weight:600}
-
-  /* Status */
-  .st{font-size:13px;margin-top:8px;min-height:18px;line-height:1.5}
-  .ok{color:#27ae60;font-weight:600}
-  .er{color:#c0392b;font-weight:600}
-  .inf{color:#2980b9}
-  .spin{display:inline-block;width:13px;height:13px;border:2px solid #ddd;border-top-color:#333;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:5px}
-  @keyframes spin{to{transform:rotate(360deg)}}
-
-  @media(max-width:400px){
-    .lgrid{grid-template-columns:repeat(3,1fr)}
-    .chips{gap:4px}
-    .chip{font-size:12px;padding:6px 10px}
-  }
-  @media(prefers-color-scheme:dark){
-    body{background:#1a1a1a;color:#eee}
-    .card{background:#252525;border-color:#333}
-    textarea,.res-box,.lang-search{background:#2a2a2a!important;color:#eee!important;border-color:#444!important}
-    .btn{background:#2a2a2a;color:#eee;border-color:#444}
-    .bp{background:#eee;color:#111;border-color:#eee}
-    .chip,.lchip{background:#2a2a2a;color:#ccc;border-color:#444}
-    .chip.on,.lchip.on{background:#eee;color:#111;border-color:#eee}
-    .copy-btn,.speak-res-btn{background:#2a2a2a;color:#ccc;border-color:#444}
-    .mic-btn{background:#eee;color:#111}
-    .mic-btn.rec{background:#e74c3c;color:#fff}
-  }
+@media(max-width:400px){
+  .lgrid{grid-template-columns:repeat(3,1fr)}
+  .chip{font-size:12px;padding:6px 10px}
+}
+@media(prefers-color-scheme:dark){
+  body{background:#1a1a1a;color:#eee}
+  .card{background:#252525;border-color:#333}
+  textarea,.res-box,.lang-search{background:#2a2a2a!important;color:#eee!important;border-color:#444!important}
+  .btn{background:#2a2a2a;color:#eee;border-color:#444}
+  .bp{background:#eee;color:#111;border-color:#eee}
+  .chip,.lchip{background:#2a2a2a;color:#ccc;border-color:#444}
+  .chip.on,.lchip.on{background:#eee;color:#111;border-color:#eee}
+  .copy-btn,.speak-btn{background:#2a2a2a;color:#ccc;border-color:#444}
+  .mic-btn{background:#eee;color:#111}
+  .mic-btn.rec{background:#e74c3c;color:#fff}
+  .voice-pick{background:#2a2a2a;border-color:#444}
+  .gbtn{background:#2a2a2a;color:#eee;border-color:#444}
+  .voice-info{color:#ccc}
+  .voice-info b{color:#eee}
+}
 </style>
 </head>
 <body>
@@ -130,20 +130,28 @@
   <div class="card">
     <div class="lbl">Tarjima natijasi</div>
     <div class="res-wrap">
-      <div class="res-box" id="resBox">
-        <span class="res-placeholder">Natija bu yerda chiqadi...</span>
-      </div>
+      <div class="res-box" id="resBox"><span class="res-ph">Natija bu yerda chiqadi...</span></div>
       <button class="copy-btn" onclick="copyRes()">Nusxa</button>
     </div>
-    <button class="speak-res-btn" id="speakResBtn" onclick="speakResult()">
-      🔊 Tarjimani o'qib ber
-    </button>
+
+    <!-- Ovoz tanlash -->
+    <div class="voice-pick">
+      <div class="lbl">Ovoz jinsini tanlang</div>
+      <div class="gender-row">
+        <button class="gbtn" id="fbtn" onclick="pickGender('female')">👩 Ayol</button>
+        <button class="gbtn" id="mbtn" onclick="pickGender('male')">👨 Erkak</button>
+      </div>
+      <div class="voice-info" id="voiceInfo">Jins tanlang — keyin o'qib beradi</div>
+      <button class="speak-btn" id="speakBtn" onclick="speakResult()">
+        🔊 O'qib ber
+      </button>
+    </div>
+
     <div class="st" id="resSt"></div>
   </div>
 </div>
 
 <script>
-// ===== TILLAR =====
 const LANGS = [
   {code:'uz',name:"O'zbek",    flag:'🇺🇿',speech:'uz-UZ'},
   {code:'ru',name:'Rus',       flag:'🇷🇺',speech:'ru-RU'},
@@ -171,6 +179,24 @@ const LANGS = [
   {code:'ky',name:"Qirg'iz",   flag:'🇰🇬',speech:'ky-KG'},
 ];
 
+// Ayol va erkak ovoz kalit so'zlari
+const F_KW = ['female','woman','girl','zira','hazel','susan','linda','emma','aria',
+              'jenny','sonia','elsa','anna','natasha','svetlana','dariya','irina',
+              'madina','nova','shimmer','alloy','samantha','karen','moira','fiona',
+              'victoria','tessa','ioana','paulina','lekha','Laura','amelie','sara',
+              'hoda','naayf'];
+const M_KW = ['male','man','guy','david','mark','james','ryan','liam','eric','roger',
+              'william','dmitry','alexey','sardor','onyx','echo','fable','daniel',
+              'thomas','rishi','jorge','diego','reed','adam','arthur','eddy'];
+
+function guessGender(v) {
+  const n = v.name.toLowerCase();
+  for (const k of F_KW) if (n.includes(k)) return 'female';
+  for (const k of M_KW) if (n.includes(k)) return 'male';
+  return 'unknown';
+}
+
+let allVoices = [];
 let targetLang = 'ru';
 let targetSpeech = 'ru-RU';
 let speechLang = 'uz-UZ';
@@ -179,28 +205,38 @@ let isRecording = false;
 let finalText = '';
 let translatedText = '';
 let isSpeaking = false;
+let chosenGender = null;
+let restartTimer = null;
+
+// ===== OVOZLARNI YUKLASH =====
+function loadVoices() {
+  allVoices = speechSynthesis.getVoices();
+  if (chosenGender) updateVoiceInfo();
+}
+speechSynthesis.onvoiceschanged = loadVoices;
+loadVoices();
+setTimeout(loadVoices, 800);
 
 // ===== TIL GRID =====
 function renderLangs(list) {
   document.getElementById('lgrid').innerHTML = list.map(l =>
-    `<div class="lchip${l.code===targetLang?' on':''}" onclick="pickLang('${l.code}','${l.speech}',this)">
+    `<div class="lchip${l.code===targetLang?' on':''}"
+      onclick="pickLang('${l.code}','${l.speech}',this)">
       ${l.flag}<br>${l.name}
     </div>`
   ).join('');
 }
-
 function filterLangs() {
   const q = document.getElementById('langQ').value.toLowerCase();
   renderLangs(LANGS.filter(l => l.name.toLowerCase().includes(q) || l.code.includes(q)));
 }
-
 function pickLang(code, speech, el) {
   targetLang = code;
   targetSpeech = speech;
   document.querySelectorAll('.lchip').forEach(c => c.classList.remove('on'));
   el.classList.add('on');
+  if (chosenGender) updateVoiceInfo();
 }
-
 renderLangs(LANGS);
 
 // ===== NUTQ TILI =====
@@ -212,6 +248,43 @@ document.getElementById('slangRow').addEventListener('click', e => {
   btn.classList.add('on');
 });
 
+// ===== JINS TANLASH =====
+function pickGender(g) {
+  chosenGender = g;
+  document.getElementById('fbtn').className = 'gbtn' + (g==='female' ? ' f-on' : '');
+  document.getElementById('mbtn').className = 'gbtn' + (g==='male'   ? ' m-on' : '');
+  updateVoiceInfo();
+}
+
+function findVoice() {
+  if (!chosenGender || !allVoices.length) return null;
+  // Avval aniq til + jins
+  let v = allVoices.find(x =>
+    x.lang.toLowerCase().startsWith(targetSpeech.toLowerCase().slice(0,2)) &&
+    guessGender(x) === chosenGender
+  );
+  // Topilmasa — faqat til
+  if (!v) v = allVoices.find(x =>
+    x.lang.toLowerCase().startsWith(targetSpeech.toLowerCase().slice(0,2))
+  );
+  // Hali topilmasa — istalgan ovoz
+  if (!v) v = allVoices.find(x => guessGender(x) === chosenGender);
+  return v || null;
+}
+
+function updateVoiceInfo() {
+  const el = document.getElementById('voiceInfo');
+  if (!chosenGender) { el.textContent = 'Jins tanlang — keyin o\'qib beradi'; return; }
+  const v = findVoice();
+  const gLabel = chosenGender === 'female' ? '👩 Ayol' : '👨 Erkak';
+  const tName = LANGS.find(l => l.code === targetLang)?.name || targetLang;
+  if (v) {
+    el.innerHTML = `${gLabel} · ${tName} tili: <b>${v.name}</b>`;
+  } else {
+    el.innerHTML = `<span style="color:#c0392b">${tName} tili uchun ${gLabel.toLowerCase()} ovoz topilmadi</span>`;
+  }
+}
+
 // ===== MIKROFON =====
 function toggleRec() {
   if (isRecording) stopRec();
@@ -221,12 +294,17 @@ function toggleRec() {
 function startRec() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) {
-    setSt('mainSt', 'Chrome brauzer kerak. Telegram brauzerida ishlamaydi.', 'er');
+    setSt('mainSt','Chrome brauzer kerak. Telegram brauzerida ishlamaydi.','er');
     return;
   }
 
-  // Eski sessiyani to'liq o'chir
+  // Eski sessiyani o'chir
+  clearTimeout(restartTimer);
   if (recognition) {
+    recognition.onstart = null;
+    recognition.onresult = null;
+    recognition.onerror = null;
+    recognition.onend = null;
     try { recognition.abort(); } catch(e){}
     recognition = null;
   }
@@ -234,15 +312,14 @@ function startRec() {
   finalText = '';
   document.getElementById('srcText').value = '';
 
-  recognition = new SR();
-  recognition.lang = speechLang;
-  recognition.continuous = false;      // MUHIM: false — takrorlanishni oldini oladi
-  recognition.interimResults = true;
-  recognition.maxAlternatives = 1;
+  const rec = new SR();
+  rec.lang = speechLang;
+  rec.continuous = false;       // false — takrorlanishni oldini oladi
+  rec.interimResults = true;
+  rec.maxAlternatives = 1;
+  recognition = rec;
 
-  let restartTimer = null;
-
-  recognition.onstart = () => {
+  rec.onstart = () => {
     isRecording = true;
     document.getElementById('micBtn').classList.add('rec');
     document.getElementById('micBtn').textContent = '⏹';
@@ -250,9 +327,9 @@ function startRec() {
     setSt('mainSt','','');
   };
 
-  recognition.onresult = e => {
-    // Faqat yangi natijalarni olish — takrorlanishni oldini oladi
+  rec.onresult = e => {
     let interim = '';
+    // Faqat yangi natijalar — e.resultIndex dan boshlab
     for (let i = e.resultIndex; i < e.results.length; i++) {
       if (e.results[i].isFinal) {
         finalText += e.results[i][0].transcript + ' ';
@@ -263,175 +340,159 @@ function startRec() {
     document.getElementById('srcText').value = (finalText + interim).trim();
   };
 
-  recognition.onerror = e => {
+  rec.onerror = e => {
     if (e.error === 'no-speech' || e.error === 'aborted') {
-      if (isRecording) scheduleRestart();
+      if (isRecording) schedRestart();
       return;
     }
-    setSt('mainSt', 'Mikrofon xatosi: ' + e.error, 'er');
+    setSt('mainSt','Mikrofon xatosi: ' + e.error,'er');
     stopRecUI();
   };
 
-  recognition.onend = () => {
-    if (isRecording) scheduleRestart();
+  rec.onend = () => {
+    if (isRecording) schedRestart();
   };
 
-  function scheduleRestart() {
-    clearTimeout(restartTimer);
-    restartTimer = setTimeout(() => {
-      if (!isRecording) return;
-      try { recognition.start(); } catch(e) { stopRecUI(); }
-    }, 300);
+  try { rec.start(); } catch(e) {
+    setSt('mainSt','Mikrofon ochilmadi: ' + e.message,'er');
   }
+}
 
-  try { recognition.start(); } catch(e) {
-    setSt('mainSt', 'Mikrofon ochilmadi: ' + e.message, 'er');
-  }
+function schedRestart() {
+  clearTimeout(restartTimer);
+  restartTimer = setTimeout(() => {
+    if (!isRecording || !recognition) return;
+    try { recognition.start(); } catch(e) { stopRecUI(); }
+  }, 400);
 }
 
 function stopRec() {
   isRecording = false;
-  if (recognition) { try { recognition.stop(); } catch(e){} }
+  clearTimeout(restartTimer);
+  if (recognition) {
+    recognition.onend = null;
+    try { recognition.stop(); } catch(e){}
+  }
   stopRecUI();
-  const t = document.getElementById('srcText').value.trim();
-  if (t) setSt('mainSt', 'Yozib olindi! Tarjima tugmasini bosing.', 'ok');
+  if (document.getElementById('srcText').value.trim())
+    setSt('mainSt','Yozib olindi! Tarjima tugmasini bosing.','ok');
 }
 
 function stopRecUI() {
   isRecording = false;
-  const btn = document.getElementById('micBtn');
-  btn.classList.remove('rec');
-  btn.textContent = '🎤';
+  document.getElementById('micBtn').classList.remove('rec');
+  document.getElementById('micBtn').textContent = '🎤';
   document.getElementById('micHint').textContent = 'Bosing va gapiring';
 }
 
 // ===== TARJIMA =====
 async function doTranslate() {
   const text = document.getElementById('srcText').value.trim();
-  if (!text) { setSt('mainSt', 'Matn kiriting!', 'er'); return; }
+  if (!text) { setSt('mainSt','Matn kiriting!','er'); return; }
 
-  setSt('mainSt', '<span class="spin"></span>Tarjima qilinmoqda...', 'inf');
-  document.getElementById('resBox').innerHTML = '<span class="res-placeholder">Tarjima qilinmoqda...</span>';
-  document.getElementById('speakResBtn').classList.remove('playing');
+  setSt('mainSt','<span class="spin"></span>Tarjima qilinmoqda...','inf');
+  document.getElementById('resBox').innerHTML = '<span class="res-ph">Tarjima qilinmoqda...</span>';
   translatedText = '';
 
-  // 1-urinish: Google Translate bepul API
+  // 1-urinish: Google Translate
   try {
     const url = 'https://translate.googleapis.com/translate_a/single'
       + '?client=gtx&sl=auto&tl=' + targetLang
       + '&dt=t&q=' + encodeURIComponent(text);
-
     const res = await fetch(url);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
-
     if (data && data[0] && data[0].length) {
-      const result = data[0]
-        .filter(x => x && x[0])
-        .map(x => x[0])
-        .join('');
-
-      if (result.trim()) {
-        translatedText = result.trim();
-        showResult();
-        const tName = LANGS.find(l => l.code === targetLang)?.name || targetLang;
-        const srcDetected = (data[2] || '').toUpperCase();
-        setSt('mainSt', `✅ ${tName} tiliga tarjima qilindi${srcDetected ? ' (' + srcDetected + ')' : ''}`, 'ok');
+      const r = data[0].filter(x=>x&&x[0]).map(x=>x[0]).join('').trim();
+      if (r) {
+        translatedText = r;
+        document.getElementById('resBox').textContent = translatedText;
+        const tName = LANGS.find(l=>l.code===targetLang)?.name || targetLang;
+        const src = (data[2]||'').toUpperCase();
+        setSt('mainSt',`✅ ${tName} tiliga tarjima qilindi${src?' ('+src+')':''}`, 'ok');
+        if (chosenGender) updateVoiceInfo();
         return;
       }
     }
-    throw new Error('Natija bo\'sh');
-
+    throw new Error('bo\'sh natija');
   } catch(e1) {
-    // 2-urinish: MyMemory zaxira
+    // 2-urinish: MyMemory
     try {
-      const srcCode = speechLang.split('-')[0];
+      const src2 = speechLang.split('-')[0];
       const url2 = 'https://api.mymemory.translated.net/get'
         + '?q=' + encodeURIComponent(text)
-        + '&langpair=' + srcCode + '|' + targetLang;
-
+        + '&langpair=' + src2 + '|' + targetLang;
       const res2 = await fetch(url2);
       const d2 = await res2.json();
-
-      if (d2.responseStatus === 200 && d2.responseData?.translatedText) {
+      if (d2.responseStatus===200 && d2.responseData?.translatedText) {
         const tmp = document.createElement('div');
         tmp.innerHTML = d2.responseData.translatedText;
-        translatedText = (tmp.textContent || tmp.innerText || '').trim();
-
+        translatedText = (tmp.textContent||tmp.innerText||'').trim();
         if (translatedText) {
-          showResult();
-          const tName = LANGS.find(l => l.code === targetLang)?.name || targetLang;
-          setSt('mainSt', `✅ ${tName} tiliga tarjima qilindi!`, 'ok');
+          document.getElementById('resBox').textContent = translatedText;
+          const tName = LANGS.find(l=>l.code===targetLang)?.name || targetLang;
+          setSt('mainSt',`✅ ${tName} tiliga tarjima qilindi!`,'ok');
+          if (chosenGender) updateVoiceInfo();
           return;
         }
       }
       throw new Error('MyMemory ham ishlamadi');
-
     } catch(e2) {
       document.getElementById('resBox').innerHTML =
-        '<span class="res-placeholder">Tarjima amalga oshmadi. Internet aloqasini tekshiring.</span>';
-      setSt('mainSt', '❌ Xatolik. Qayta urinib ko\'ring.', 'er');
+        '<span class="res-ph">Tarjima amalga oshmadi. Internet aloqasini tekshiring.</span>';
+      setSt('mainSt','❌ Xatolik. Qayta urinib ko\'ring.','er');
     }
   }
 }
 
-function showResult() {
-  document.getElementById('resBox').textContent = translatedText;
-}
-
-// ===== TARJIMANI O'QIB BERISH =====
+// ===== O'QIB BERISH =====
 function speakResult() {
-  if (!translatedText) {
-    setSt('resSt', 'Avval tarjima qiling!', 'er');
-    return;
-  }
+  if (!translatedText) { setSt('resSt','Avval tarjima qiling!','er'); return; }
 
   if (isSpeaking) {
     speechSynthesis.cancel();
     isSpeaking = false;
-    document.getElementById('speakResBtn').classList.remove('playing');
-    document.getElementById('speakResBtn').textContent = '🔊 Tarjimani o\'qib ber';
-    setSt('resSt', '', '');
+    resetSpeakBtn();
+    return;
+  }
+
+  if (!chosenGender) {
+    setSt('resSt','Avval jins tanlang (👩 Ayol yoki 👨 Erkak)!','er');
+    return;
+  }
+
+  const voice = findVoice();
+  if (!voice) {
+    setSt('resSt','Bu til uchun ovoz topilmadi','er');
     return;
   }
 
   speechSynthesis.cancel();
-
   const utt = new SpeechSynthesisUtterance(translatedText);
-
-  // Maqsad til speech kodini topish
-  const found = LANGS.find(l => l.code === targetLang);
-  utt.lang = found ? found.speech : targetLang;
-
+  utt.voice = voice;
+  utt.lang  = voice.lang;
   utt.rate  = 1;
   utt.pitch = 1;
 
   utt.onstart = () => {
     isSpeaking = true;
-    const btn = document.getElementById('speakResBtn');
+    const btn = document.getElementById('speakBtn');
     btn.classList.add('playing');
     btn.textContent = '⏹ To\'xtat';
-    setSt('resSt', '🔊 O\'qilmoqda...', 'inf');
+    setSt('resSt','🔊 O\'qilmoqda: ' + voice.name,'inf');
   };
 
-  utt.onend = () => {
+  const done = () => {
     isSpeaking = false;
-    const btn = document.getElementById('speakResBtn');
-    btn.classList.remove('playing');
-    btn.textContent = '🔊 Tarjimani o\'qib ber';
-    setSt('resSt', '', '');
+    resetSpeakBtn();
+    setSt('resSt','','');
   };
+  utt.onend   = done;
+  utt.onerror = done;
 
-  utt.onerror = () => {
-    isSpeaking = false;
-    document.getElementById('speakResBtn').classList.remove('playing');
-    document.getElementById('speakResBtn').textContent = '🔊 Tarjimani o\'qib ber';
-    setSt('resSt', 'Ovoz chiqmadi', 'er');
-  };
-
-  // iOS bug fix
-  const keepAlive = setInterval(() => {
-    if (!speechSynthesis.speaking) { clearInterval(keepAlive); return; }
+  // iOS uzun matn bug fix
+  const ka = setInterval(() => {
+    if (!speechSynthesis.speaking) { clearInterval(ka); return; }
     speechSynthesis.pause();
     speechSynthesis.resume();
   }, 10000);
@@ -439,12 +500,18 @@ function speakResult() {
   speechSynthesis.speak(utt);
 }
 
+function resetSpeakBtn() {
+  const btn = document.getElementById('speakBtn');
+  btn.classList.remove('playing');
+  btn.textContent = '🔊 O\'qib ber';
+}
+
 // ===== NUSXA =====
 function copyRes() {
   if (!translatedText) return;
   if (navigator.clipboard) {
     navigator.clipboard.writeText(translatedText)
-      .then(() => setSt('resSt', 'Nusxa olindi!', 'ok'));
+      .then(()=>setSt('resSt','Nusxa olindi!','ok'));
   } else {
     const ta = document.createElement('textarea');
     ta.value = translatedText;
@@ -452,7 +519,7 @@ function copyRes() {
     ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    setSt('resSt', 'Nusxa olindi!', 'ok');
+    setSt('resSt','Nusxa olindi!','ok');
   }
 }
 
@@ -463,26 +530,23 @@ function clearAll() {
   isSpeaking = false;
   speechSynthesis.cancel();
   document.getElementById('srcText').value = '';
-  document.getElementById('resBox').innerHTML = '<span class="res-placeholder">Natija bu yerda chiqadi...</span>';
-  document.getElementById('speakResBtn').classList.remove('playing');
-  document.getElementById('speakResBtn').textContent = '🔊 Tarjimani o\'qib ber';
-  setSt('mainSt', '', '');
-  setSt('resSt', '', '');
+  document.getElementById('resBox').innerHTML = '<span class="res-ph">Natija bu yerda chiqadi...</span>';
+  resetSpeakBtn();
+  setSt('mainSt','','');
+  setSt('resSt','','');
 }
 
 function setSt(id, msg, type) {
   const el = document.getElementById(id);
   if (!el) return;
   el.innerHTML = msg;
-  el.className = 'st ' + (type || '');
+  el.className = 'st ' + (type||'');
 }
 
-// Ctrl+Enter bilan tarjima
 document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.key === 'Enter') doTranslate();
+  if (e.ctrlKey && e.key==='Enter') doTranslate();
 });
 
-// Sahifa yashirilganda mikrofon to'xtasin
 document.addEventListener('visibilitychange', () => {
   if (document.hidden && isRecording) stopRec();
 });
